@@ -24,10 +24,10 @@
 Esta é uma API que tem como função cadastrar e listar usuários. Para que a listagem de usuários seja realizada, o usuário que solicita esta ação dever ser um administrador. Com a execução do projeto é possível acessar a documentação da API desenvolvida com o [Swagger](https://swagger.io/).
 
 ## :hammer_and_wrench: Funcionalidades:
-- []  Criar um novo usuário com `name` e `email`.
-- []  Listar todos os usuários.
-- []  Retornar um único usuário.
-- []  Tornar um usuário em `admin`.
+- [x]  Criar um novo usuário com `name` e `email`.
+- [x]  Listar todos os usuários.
+- [x]  Retornar um único usuário.
+- [x]  Tornar um usuário em `admin`.
 
 ## :link: Rotas:
 - POST `/users`: cria um novo usuário.
