@@ -9,16 +9,16 @@ interface IRequest {
 class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
-  execute({ email, name }: IRequest): User | undefined {
+  execute({ email, name }: IRequest): User {
     const userAlrealdyExists = this.usersRepository.findByEmail(email);
 
     if (userAlrealdyExists) {
       throw new Error("User already existis!");
     }
 
-    this.usersRepository.create({ name, email });
+    const user = this.usersRepository.create({ email, name });
 
-    return userAlrealdyExists;
+    return user;
   }
 }
 
