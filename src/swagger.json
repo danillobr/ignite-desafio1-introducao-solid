@@ -1,3 +1,108 @@
 {
-  
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Atlas",
+    "description": "Essa é uma documentação sobre Atlas API.",
+    "version": "1.0.0",
+    "contact": {
+      "email": "danillo@gmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Cria um novo usuário.",
+        "description": "Cria um novo usuário a partir de um nome e e-mail.",
+        "requestBody": {
+          "description": "Campos obrigatórios para criar usuário",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Danillo",
+                  "email": "danillo@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "admin": {
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "type": "string" 
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type":"string"
+                    },
+                    "update_at": {
+                      "type":"string"
+                    }
+                  },
+                  "example": {
+                    "admin": "false",
+                    "id": "d76sd76sa6ds76ad76sa6d-dsds-dsda-333dss",
+                    "name": "Danillo",
+                    "email": "danillo@gmail.com",
+                    "created_at": "2022-09-21T16:25:24.9922",
+                    "update_at": "2022-09-21T16:25:24.9922"
+                  }
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Email já está sendo utilizado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "User already existis."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "users",
+      "description": "Gerenciamento de usuários."
+    }
+  ]
 }
